@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kirish</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Kirish</h2>
+
+        <!-- Xabarlar -->
+        <div class="messages">
+            {% for message in messages %}
+            <p class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+            {% endfor %}
+        </div>
+
+        <!-- Forma -->
+        <form method="POST">
+            {% csrf_token %}
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Parol:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Kirish</button>
+        </form>
+
+        <p>Ro'yxatdan o'tmoqchimisiz? <a href="{% url 'register' %}">Ro'yxatdan o'tish</a></p>
+    </div>
+</body>
+
+</html>

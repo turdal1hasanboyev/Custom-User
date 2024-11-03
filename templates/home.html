@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bosh sahifa</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="container home-content">
+        <h1>Assalomu alaykum, {{ request.user.get_full_name }}!</h1>
+        <p>Bu yerda boshqa foydalanuvchilar haqida ma'lumotlar va muhim yangiliklarni ko'rishingiz mumkin.</p>
+
+        <a href="{% url 'logout' %}" class="button">Chiqish</a>
+    </div>
+</body>
+
+</html>
